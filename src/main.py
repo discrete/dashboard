@@ -3,10 +3,11 @@
 import wsgiref.handlers
 
 from google.appengine.ext import webapp
+from google.appengine.ext.webapp import template
 
 class MainHandler(webapp.RequestHandler):
     def get(self):
-        self.response.out.write('Hello, World!!')
+        self.response.out.write(template.render('template/main.html',{}))
 
 def main():
     app = webapp.WSGIApplication([
